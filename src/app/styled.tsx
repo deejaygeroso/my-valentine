@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { NoButtonProps } from './types';
 
 export const Container = styled.div`
-  background: url(/background.webp) no-repeat center center fixed;
+  background: url(/background.webp) no-repeat right center fixed;
   height: 100vh;
   overflow: hidden;
   position: relative;
@@ -19,32 +19,55 @@ export const Overlay = styled.div`
   width: 100%;
 `;
 
-export const YesButton = styled.button`
-  background: #66bb6a;
+export const Heading = styled.h1`
+  color: #ff2542;
+  font-family: 'Pacifico', cursive;
+  font-size: 95px;
+  margin-top: 40px;
+  text-align: center;
+  line-height: 1;
+
+  @media (max-width: 768px) {
+    // tablet view
+    font-size: 60px;
+  }
+
+  @media (max-width: 480px) {
+    // mobile view
+    font-size: 40px;
+  }
+`;
+
+export const ButtonWrapper = styled.div`
+  align-items: center;
+  background: red;
+  display: flex;
+  height: 150px;
+  justify-content: center;
+  gap: 20px;
+`;
+
+const Button = styled.button`
   border: none;
   border-radius: 5px;
   color: #fff;
   cursor: pointer;
-  font-size: 20px;
-  height: 50px;
-  left: 50%;
-  position: absolute;
-  top: 49%;
-  transform: translate(-50%, -50%);
+  font-family: 'Pacifico', cursive;
+  font-size: 16px;
+  height: 42px;
   width: 120px;
 `;
 
-export const NoButton = styled.button<NoButtonProps>`
-  background: #f44336;
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  cursor: pointer;
-  font-size: 10px;
-  height: 25px;
-  left: ${(props) => `${props.$left}px`};
-  position: absolute;
-  top: ${(props) => `${props.$top}px`};
+export const YesButton = styled(Button)`
+  background: #66bb6a;
+`;
+
+export const NoButton = styled(Button)<NoButtonProps>`
+  background: #ff5163;
+
+  left: ${(props) => `${props.$left ?? 0}px`};
+  top: ${(props) => `${props.$top ?? 0}px`};
+  position: ${(props) => props.$position ?? 'relative'};
+
   transition: top 0.5s, left 0.5s;
-  width: 60px;
 `;

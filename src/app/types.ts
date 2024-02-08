@@ -1,4 +1,5 @@
 export interface NoButtonProps {
-  $top: number;
   $left: number;
+  $position: string;
+  $top: number;
 }
