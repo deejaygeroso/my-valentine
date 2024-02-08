@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import { NoButtonProps } from './types';
 
 export const Container = styled.div`
-  background: url(/background.webp) no-repeat right center fixed;
+  background: url(/background.png) no-repeat center center fixed;
+  background-size: cover;
   height: 100vh;
   overflow: hidden;
   position: relative;
@@ -30,11 +31,17 @@ export const Heading = styled.h1`
   @media (max-width: 768px) {
     // tablet view
     font-size: 60px;
+    &:first-of-type {
+      margin-top: 120px;
+    }
   }
 
   @media (max-width: 480px) {
     // mobile view
     font-size: 40px;
+    &:first-of-type {
+      margin-top: 120px;
+    }
   }
 `;
 
