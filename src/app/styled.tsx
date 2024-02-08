@@ -40,11 +40,20 @@ export const Heading = styled.h1`
 
 export const ButtonWrapper = styled.div`
   align-items: center;
-  background: red;
   display: flex;
   height: 150px;
   justify-content: center;
   gap: 20px;
+`;
+
+export const ButtonCard = styled.div`
+  align-items: center;
+  background: #ff000054;
+  border-radius: 10px;
+  display: flex;
+  height: 100px;
+  justify-content: center;
+  width: 300px;
 `;
 
 const Button = styled.button`
@@ -60,6 +69,7 @@ const Button = styled.button`
 
 export const YesButton = styled(Button)`
   background: #66bb6a;
+  margin-right: 150px;
 `;
 
 export const NoButton = styled(Button)<NoButtonProps>`

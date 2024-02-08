@@ -4,7 +4,7 @@ import * as Styled from './styled';
 const MyValentine = (): JSX.Element => {
   const [position, setPosition] = useState({
     top: 0,
-    left: 0,
+    left: -65,
     position: 'relative',
   });
   const noButtonRef = useRef<HTMLButtonElement>(null);
@@ -14,10 +14,9 @@ const MyValentine = (): JSX.Element => {
       const rect = noButtonRef.current.getBoundingClientRect();
       setPosition({
         top: rect.top,
-        left: rect.left + 55,
+        left: rect.left,
         position: 'absolute',
       });
-      console.log(rect.top, rect.left); // Logs the top and left position
     }
 
     // Optional: Adjust if window resizes
@@ -25,7 +24,7 @@ const MyValentine = (): JSX.Element => {
       const updatedPosition = {
         top: (window.innerHeight - 50) / 2,
         left: window.innerWidth / 2 + 60,
-        position: 'relative',
+        position: 'absolute',
       };
       setPosition(updatedPosition);
     };
@@ -60,17 +59,19 @@ const MyValentine = (): JSX.Element => {
       <Styled.Heading>Will You Be </Styled.Heading>
       <Styled.Heading>My Valentine?</Styled.Heading>
       <Styled.ButtonWrapper>
-        <Styled.YesButton onClick={visitProfile}>Yes</Styled.YesButton>
-        <Styled.NoButton
-          $top={position.top}
-          $left={position.left}
-          $position={position.position}
-          onMouseEnter={moveButton}
-          onClick={moveButton}
-          ref={noButtonRef}
-        >
-          No
-        </Styled.NoButton>
+        <Styled.ButtonCard>
+          <Styled.YesButton onClick={visitProfile}>Yes</Styled.YesButton>
+          <Styled.NoButton
+            $top={position.top}
+            $left={position.left}
+            $position={position.position}
+            onMouseEnter={moveButton}
+            onClick={moveButton}
+            ref={noButtonRef}
+          >
+            No
+          </Styled.NoButton>
+        </Styled.ButtonCard>
       </Styled.ButtonWrapper>
     </Styled.Container>
   );
