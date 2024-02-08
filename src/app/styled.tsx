@@ -44,6 +44,7 @@ export const ButtonWrapper = styled.div`
   height: 150px;
   justify-content: center;
   gap: 20px;
+  margin-top: 190px;
 `;
 
 export const ButtonCard = styled.div`
@@ -69,15 +70,15 @@ const Button = styled.button`
 
 export const YesButton = styled(Button)`
   background: #66bb6a;
-  margin-right: 150px;
+  margin-right: 132px;
+  z-index: 10;
 `;
 
 export const NoButton = styled(Button)<NoButtonProps>`
   background: #ff5163;
+  transition: top 0.5s, left 0.5s;
 
   left: ${(props) => `${props.$left ?? 0}px`};
   top: ${(props) => `${props.$top ?? 0}px`};
   position: ${(props) => props.$position ?? 'relative'};
-
-  transition: top 0.5s, left 0.5s;
 `;
